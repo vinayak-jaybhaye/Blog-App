@@ -4,10 +4,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "nodemon app.js",
-    "build": "vite build",
-    "dev": "vite",
-    "preview": "vite preview"
+    "start": "nodemon app.js"
   },
   "author": "vinayak",
   "license": "ISC",
@@ -20,8 +17,5 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.9.5",
     "multer": "^1.4.5-lts.1"
-  },
-  "devDependencies": {
-    "vite": "^6.0.11"
   }
 }
