@@ -4,11 +4,12 @@
   "main": "app.js",
   "type": "module",
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "dev": "nodemon app.js"
   },
   "author": "vinayak",
   "license": "ISC",
-  "description": "",
+  "description": "A simple blog application built with Node.js, Express, and MongoDB",
   "dependencies": {
     "cookie-parser": "^1.4.7",
     "dotenv": "^16.4.7",
