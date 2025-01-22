@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/head') %>
+        <title>Homepage</title>
+</head>
+
+<body>
+    <%- include('./partials/nav') %>
+
+        <div class="container mt-5">
+            <!-- Blog Title -->
+            <h1 class="display-4 text-center mb-4 text-dark fw-bold">
+                <%= blog.title %>
+            </h1>
+
+            <!-- Blog Cover Image -->
+            <div class="text-center mb-4">
+                <img src="<%= blog.coverImageUrl %>" class="img-fluid rounded shadow-lg" alt="Blog Cover Image"
+                    style="max-width: 400px; height: auto; object-fit: cover;">
+            </div>
+
+            <!-- Blog Body -->
+            <div class="mt-4">
+                <p class="fs-5 text-muted">
+                    <%= blog.body %>
+                </p>
+            </div>
+        </div>
+
+        <div class="container mt-4">
+            <!-- Blog Author -->
+            <div class="d-flex align-items-center mb-4">
+                <img src="<%= blog.createdBy.profileImage %>" alt="Author Profile Image" class="rounded-circle me-3"
+                    style="width: 60px; height: 60px; object-fit: cover;">
+                <p class="mb-0 fw-bold text-dark fs-5">
+                    <%= blog.createdBy.username %>
+                </p>
+            </div>
+        </div>
+
+        <div class="container mt-4">
+            <!-- Comments Section -->
+            <h3 class="h4 mb-3 text-dark">Comments (<%= comments.length %>)</h3>
+            <% comments.forEach(element=> { %>
+                <div class="d-flex align-items-start mb-4 border-bottom pb-3">
+                    <img src="<%= element.createdBy.profileImage %>" alt="Commenter Profile Image"
+                        class="rounded-circle me-3" style="width: 50px; height: 50px; object-fit: cover;">
+                    <div>
+                        <p class="mb-1 fw-bold text-dark">
+                            <%= element.createdBy.username %>
+                        </p>
+                        <p class="mb-0 text-muted">
+                            <%= element.content %>
+                        </p>
+                    </div>
+                </div>
+                <% }); %>
+        </div>
+
+        <div class="container mt-4">
+            <!-- Comment Form -->
+            <% if (locals.user) { %>
+                <h4 class="mb-3 text-dark">Add a Comment</h4>
+                <form action="/blog/comment/<%= blog.id %>" method="POST">
+                    <div class="mb-3">
+                        <input name="content" type="text" class="form-control rounded-pill shadow-sm" id="content"
+                            required placeholder="Enter your comment" />
+                    </div>
+                    <button type="submit" class="btn btn-primary px-4 py-2 rounded-pill shadow">Post Comment</button>
+                </form>
+                <% } else { %>
+                    <p class="text-muted">Log in to post a comment.</p>
+                    <% } %>
+        </div>
+
+        <%- include('./partials/scripts') %>
+</body>
+
+</html>

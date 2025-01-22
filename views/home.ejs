@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('./partials/head') %>
+  <title>Homepage</title>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <%- include('./partials/nav') %>
+
+  <!-- Blog Cards Section -->
+  <div class="container mt-5">
+    <% if (locals.blogs.length > 0) { %>
+      <div class="row">
+        <% blogs.forEach(blog => { %>
+          <div class="col-md-4 col-sm-6 col-12 mb-4">
+            <!-- Blog Card -->
+            <div class="card shadow-sm h-100">
+              <!-- Card Image -->
+              <img src="<%= blog.coverImageUrl %>" class="card-img-top" alt="<%= blog.title %>" style="height: 200px; object-fit: cover;">
+              
+              <!-- Card Body -->
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title"><%= blog.title %></h5>
+                <a href="/blog/<%= blog._id %>" class="btn btn-primary mt-auto">View</a>
+              </div>
+            </div>
+          </div>
+        <% }) %>
+      </div>
+    <% } else { %>
+      <!-- No Blogs Message -->
+      <p class="text-center mt-5 fs-4 text-muted">No blogs available. Create a new blog to see it here.</p>
+    <% } %>
+  </div>
+
+  <!-- Scripts -->
+  <%- include('./partials/scripts') %>
+</body>
+
+</html>

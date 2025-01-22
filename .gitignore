@@ -1,0 +1,65 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Dependency directories
+node_modules/
+.bower_components/
+
+# Environment variables
+.env
+
+# Build output
+dist/
+build/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Editor directories and files
+.vscode/
+.idea/
+*.swp
+
+# Coverage directories
+coverage/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.temp
+
+# Ignore package lock files (optional)
+package-lock.json
+yarn.lock
+
+# Ignore files from npm and Yarn
+.npm/
+.pnp.cjs
+.pnp.loader.mjs
+
+# Ignore database files
+*.sqlite
+*.db
+*.sql
+
+# Miscellaneous
+*.pid
+*.seed
+*.env.local
+*.env.development
+*.env.production
+.env.test
+.env*.local
+
+# Generated files
+*.bak
+*.orig
+
+# Ignore testing related files
+jest-html-reporters-*.html
