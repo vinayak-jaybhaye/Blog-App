@@ -6,7 +6,7 @@ import { getAllBlogs } from './controllers/blog.controller.js';
 import connectDB from './utils/mongodb.js'
 
 
-const app = express();
+const app = express()
 
 // Set the view engine to EJS
 app.set('view engine', 'ejs');
@@ -17,8 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json())
 app.use(cookieParser())
 app.use(checkForAuthCookie("token"))
-app.use(express.static(path.resolve("./public")))
-
+app.use(express.static(path.resolve("./public")));
 app.get('/', getAllBlogs);
 
 
