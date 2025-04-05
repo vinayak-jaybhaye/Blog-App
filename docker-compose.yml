@@ -1,0 +1,37 @@
+services:
+  app:
+    build: .
+    container_name: blog-app
+    environment:
+      - SECRET=qwertyuio
+      - PORT=8000
+      - MONGO_URL=mongodb://root:secret@mongo:27017
+      - MONGO_DB=test
+    networks:
+      - mongo-net
+    restart: always
+    depends_on:
+      - mongo
+    ports:
+      - "8000:8000"
+    
+  mongo:
+    image: mongo:latest
+    container_name: blog-mongo
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=secret
+    ports:
+      - "27017:27017"
+    networks:
+      - mongo-net
+    volumes:
+      - mongo-db:/data/db
+    restart: always
+
+volumes:
+  mongo-db:
+
+networks:
+  mongo-net:
+      

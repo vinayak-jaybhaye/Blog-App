@@ -7,7 +7,7 @@ import { protectedRoutes } from '../middlewares/protectedRoutes.middleware.js'
 const router = Router()
 
 router.route('/addblog').get(protectedRoutes, (req, res) => {
-    res.render("addblog", {
+    res.render("addBlog", {
         user: req.user
     })
 }).post(upload.single('coverImage'), addBlog)
